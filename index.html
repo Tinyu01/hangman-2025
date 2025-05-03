@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman 2025</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body class="dark-mode">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌓</button>
+    <main class="container">
+        <header>
+            <h1>Hangman 2025</h1>
+        </header>
+
+        <section class="game-section" aria-label="Game area">
+            <div class="hangman-container">
+                <svg id="hangmanSvg" viewBox="0 0 300 250" aria-label="Hangman drawing">
+                    <path class="hangman-part" id="base" d="M50,240 L250,240" />
+                    <path class="hangman-part" id="pole" d="M100,240 L100,20" />
+                    <path class="hangman-part" id="beam" d="M100,20 L200,20" />
+                    <path class="hangman-part" id="rope" d="M200,20 L200,50" />
+                    <circle class="hangman-part" id="head" cx="200" cy="70" r="20" />
+                    <path class="hangman-part" id="body" d="M200,90 L200,150" />
+                    <path class="hangman-part" id="leftArm" d="M200,100 L170,130" />
+                    <path class="hangman-part" id="rightArm" d="M200,100 L230,130" />
+                    <path class="hangman-part" id="leftLeg" d="M200,150 L170,190" />
+                    <path class="hangman-part" id="rightLeg" d="M200,150 L230,190" />
+                </svg>
+            </div>
+
+            <div class="word-container">
+                <div>
+                    <div class="category" id="category" aria-live="polite">Category: Loading...</div>
+                    <div class="word" id="word" aria-label="Current word"></div>
+                </div>
+
+                <div class="hint-container">
+                    <button class="hint-button" id="hintButton" aria-label="Get hint">Get Hint</button>
+                    <div class="hint-text" id="hintText" aria-live="polite"></div>
+                </div>
+
+                <div class="keyboard" id="keyboard" role="group" aria-label="Letter selection"></div>
+
+                <div class="status" id="status" aria-live="polite"></div>
+
+                <div class="difficulty" role="radiogroup" aria-label="Difficulty selection">
+                    <button class="difficulty-btn active" data-difficulty="easy" role="radio" aria-checked="true">Easy</button>
+                    <button class="difficulty-btn" data-difficulty="medium" role="radio" aria-checked="false">Medium</button>
+                    <button class="difficulty-btn" data-difficulty="hard" role="radio" aria-checked="false">Hard</button>
+                </div>
+
+                <div class="stats" aria-label="Game statistics">
+                    <div>Wins: <span id="wins">0</span></div>
+                    <div>Losses: <span id="losses">0</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="game-over" id="gameOver" role="dialog" aria-labelledby="gameOverTitle">
+        <h2 id="gameOverTitle">Game Over!</h2>
+        <p>The word was: <span id="correctWord"></span></p>
+        <button class="restart" id="restartButton" aria-label="Restart game">Play Again</button>
+    </div>
+
+    <div class="game-won" id="gameWon" role="dialog" aria-labelledby="gameWonTitle">
+        <h2 id="gameWonTitle">You Won!</h2>
+        <p>You guessed the word correctly!</p>
+        <button class="restart" id="winRestartButton" aria-label="Restart game">Play Again</button>
+    </div>
+
+    <!-- Ensure scripts are loaded in the correct order -->
+    <script type="module" src="./assets/js/words.js"></script>
+    <script type="module" src="./assets/js/game.js"></script>
+    <script type="module" src="./assets/js/ui.js"></script>
+</body>
+</html>
