@@ -2,7 +2,7 @@
 
 A modern, responsive implementation of the classic word-guessing game with multiple difficulty levels, themes, and categories.
 
-![Hangman 2025 Screenshot](assets/images/screenshot.png)
+![Hangman 2025 Screenshot](./assets/images/Screenshot.jpg)
 
 ## 🎮 Features
 
